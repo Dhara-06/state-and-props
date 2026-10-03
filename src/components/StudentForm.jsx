@@ -1,14 +1,15 @@
-import { useState } from 'react';
-import InputField from './InputFields';
+import { useState } from "react";
+import StudentDetails from "./StudentDetails";
 
 function StudentForm() {
-
   const [student, setStudent] = useState({
-    name: '',
-    email: '',
-    age: '',
-    course: ''
+    name: "",
+    email: "",
+    age: "",
+    course: ""
   });
+
+  const [submittedStudent, setSubmittedStudent] = useState(null);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -22,66 +23,117 @@ function StudentForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(student);
+    setSubmittedStudent(student);
+
+    setStudent({
+      name: "",
+      email: "",
+      age: "",
+      course: ""
+    });
   };
+  console.log(submittedStudent);
+  
 
   return (
-    <>
-    <div className="card p-4 shadow">
+    <div className="container mt-5">
 
-      <form onSubmit={handleSubmit}>
+      <div className="row justify-content-center">
 
-        <InputField
-          label="Name"
-          type="text"
-          name="name"
-          value={student.name}
-          onChange={handleChange}
-          placeholder="Enter your name"
-        />
+        <div className="col-md-6">
 
-        <InputField
-          label="Email"
-          type="email"
-          name="email"
-          value={student.email}
-          onChange={handleChange}
-          placeholder="Enter your email"
-        />
+          <div className="card shadow p-4">
 
-        <InputField
-          label="Age"
-          type="number"
-          name="age"
-          value={student.age}
-          onChange={handleChange}
-          placeholder="Enter your age"
-        />
+            <h2 className="text-center mb-4">
+              Student Registration
+            </h2>
 
-        <InputField
-          label="Course"
-          type="text"
-          name="course"
-          value={student.course}
-          onChange={handleChange}
-          placeholder="Enter your course"
-        />
+            <form onSubmit={handleSubmit}>
 
-        <button
-          type="submit"
-          className="btn btn-primary"
-        >
-          Register
-        </button>
+              <div className="mb-3">
+                <label className="form-label">
+                  Name
+                </label>
 
-      </form>
+                <input
+                  type="text"
+                  name="name"
+                  value={student.name}
+                  onChange={handleChange}
+                  className="form-control"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label className="form-label">
+                  Email
+                </label>
+
+                <input
+                  type="email"
+                  name="email"
+                  value={student.email}
+                  onChange={handleChange}
+                  className="form-control"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label className="form-label">
+                  Age
+                </label>
+
+                <input
+                  type="number"
+                  name="age"
+                  value={student.age}
+                  onChange={handleChange}
+                  className="form-control"
+                  placeholder="Enter your age"
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label className="form-label">
+                  Course
+                </label>
+
+                <input
+                  type="text"
+                  name="course"
+                  value={student.course}
+                  onChange={handleChange}
+                  className="form-control"
+                  placeholder="Enter your course"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="btn btn-primary w-100"
+              >
+                Register
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {submittedStudent && (
+        <StudentDetails student={submittedStudent} />
+      )}
 
     </div>
-    <h1>
-        name : {student.name}
-    </h1>
-    </>
-
   );
 }
 
