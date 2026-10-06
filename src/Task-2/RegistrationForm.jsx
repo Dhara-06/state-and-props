@@ -10,20 +10,7 @@ function Register() {
         terms: false
     });
 
-    const [details, setDetails] = useState(null);
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setDetails(form);
-        setForm({
-            name: "",
-            email: "",
-            phone: "",
-            city: "",
-            gender: "",
-            terms: false
-        });
-    };
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
 
@@ -39,7 +26,7 @@ function Register() {
                     <div className="col-md-6">
                         <div className="card shadow p-4">
                             <h2 className="text-center mb-4">Registration Form</h2>
-                            <form onSubmit={handleSubmit}>
+                            <form>
                                 <div className="mb-3">
                                     <label htmlFor="name" className="form-label">Name</label>
                                     <input type="text" className="form-control" id="name" name="name" value={form.name} onChange={handleChange} placeholder="Enter your name" />
@@ -71,16 +58,17 @@ function Register() {
                     <div className="col-md-6">
                         <div className="card shadow p-4">
                             <h2 className="text-center mb-4">Submitted Details</h2>
-                            {details ? (
+                            {form ? (
                                 <div>
-                                    <p><strong>Name:</strong> {details.name}</p>
-                                    <p><strong>Email:</strong> {details.email}</p>
-                                    <p><strong>Phone:</strong> {details.phone}</p>
-                                    <p><strong>City:</strong> {details.city}</p>
-                                    <p><strong>Gender:</strong> {details.gender}</p>
+                                    <p><strong>Name:</strong> {form.name}</p>
+                                    <p><strong>Email:</strong> {form.email}</p>
+                                    <p><strong>Phone:</strong> {form.phone}</p>
+                                    <p><strong>City:</strong> {form.city}</p>
+                                    <p><strong>Gender:</strong> {form.gender}</p>
+                                    <p><strong>Terms:</strong> {form.terms ? "Accepted" : ""}</p>
                                 </div>
                             ) : (
-                                <p>No details submitted yet.</p>
+                                <p>No form submitted yet.</p>
                             )}
                         </div>
                     </div>

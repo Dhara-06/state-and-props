@@ -29,7 +29,7 @@
 
 // export default App;
 
-//Task-2
+// Task-2
 
 import Register from "./Task-2/RegistrationForm";
 
