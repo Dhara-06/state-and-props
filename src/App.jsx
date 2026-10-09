@@ -1,17 +1,20 @@
 // import StudentForm from './components/StudentForm';
+import FocusInput from './components/FocusInput';
+function App() {
+  return (
+    // <div className="container mt-5">
+    //   <h1 className="text-center mb-4">
+    //     Student Registration
+    //   </h1>
+    //   <StudentForm />
+    // </div>
+    <>
+    <FocusInput />  
+    </>
+  );
+}
 
-// function App() {
-//   return (
-//     <div className="container mt-5">
-//       <h1 className="text-center mb-4">
-//         Student Registration
-//       </h1>
-//       <StudentForm />
-//     </div>
-//   );
-// }
-
-// export default App;
+export default App;
 
 
 //Task-1
@@ -31,14 +34,14 @@
 
 // Task-2
 
-import Register from "./Task-2/RegistrationForm";
+// import Register from "./Task-2/RegistrationForm";
 
-function App() {
-  return (
-    <div className="container mt-5">
-      <Register />
-    </div>
-  );
-}
+// function App() {
+//   return (
+//     <div className="container mt-5">
+//       <Register />
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
