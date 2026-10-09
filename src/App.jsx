@@ -1,6 +1,7 @@
 // import StudentForm from './components/StudentForm';
 // import FocusInput from './components/FocusInput';
-import PreviousValue from "./components/PreviousValue";
+// import PreviousValue from "./components/PreviousValue";
+import StopWatch from "./components/StopWatch" 
 function App() {
   return (
     // <div className="container mt-5">
@@ -11,7 +12,8 @@ function App() {
     // </div>
     <>
     {/* <FocusInput />   */}
-    <PreviousValue/>
+    {/* <PreviousValue/> */}
+    <StopWatch/>
     </>
   );
 }
